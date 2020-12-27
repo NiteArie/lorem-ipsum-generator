@@ -1,5 +1,9 @@
 # lorem-ipsum-generator (Lorem Ipsum Generator)
 
+## Current Version
+
+Live Version: [https://nitearie.github.io/lorem-ipsum-generator/](https://nitearie.github.io/lorem-ipsum-generator/)
+
 ## General Info
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. This app should generate passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more.
