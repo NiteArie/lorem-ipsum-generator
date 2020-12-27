@@ -75,6 +75,41 @@ body {
     margin-top: 10px;
 }
 
+.container__form__advance label {
+    margin-bottom: 10px;    
+}
+
+.container__form__advance__section {
+    display: flex;
+    align-items: center;
+}
+
+.container__form__advance__section label {
+    margin-right: 10px;
+}
+
+.container__form__advance__section label[for*="max"] {
+    margin-left: 10px;
+}
+
+.container__form__alert {
+    color: hsl(0, 50%, 50%);
+    line-height: 1.25;
+}
+
+.container__output {
+    margin-top: 10px;
+    padding: 20px;
+    height: 200px;
+    overflow-y: scroll;
+    background-color: white;
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.1);
+}
+
+.container__output__content {
+    line-height: 1.25;
+}
+
 .hidden {
     display: none;
 }
