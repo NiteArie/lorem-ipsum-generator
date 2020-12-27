@@ -7,7 +7,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. This 
 ## User Stories
 
 * [X] User can type into an input field the number of paragraphs of lorem ipsum to be generated
-* [ ] Use can see the generated paragraphs of lorem ipsum and is able to copy them
+* [X] Use can see the generated paragraphs of lorem ipsum and is able to copy them
 
 ## Bonus Features
 
