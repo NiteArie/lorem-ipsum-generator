@@ -10,7 +10,7 @@ const app = (() => {
     const _moreButton = document.querySelector(".container__form__buttons__more");
     const _moreOptions = document.querySelector(".container__form__advance");
     const _alert = document.querySelector(".container__form__alert");
-    const _outputContent = document.querySelector(".container__output__content");
+    const _outputContent = document.querySelector(".container__output__section__content");
 
     const _errorMessage = "The maximum sentences/paragraph and words/sentence values are 12. Entered value must be positive";
 
