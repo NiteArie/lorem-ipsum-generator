@@ -12,4 +12,5 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. This 
 ## Bonus Features
 
 * [ ] User can select the units which will be generated: words, sentences or paragraphs
+* [ ] User can copy the generated paragraphs to clipboard
 
