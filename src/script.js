@@ -1,17 +1,18 @@
 import { LoremIpsum } from 'lorem-ipsum';
 
 const app = (() => {
+    const _form = document.querySelector(".container__form");
     const _paragraphInput = document.querySelector(".container__form__input");
     const _minWordInput = document.querySelector(".container__form__advance__min-word");
     const _maxWordInput = document.querySelector(".container__form__advance__max-word");
     const _minSentenceInput = document.querySelector(".container__form__advance__min-sentence");
     const _maxSentenceInput = document.querySelector(".container__form__advance__max-sentence");
-    const _form = document.querySelector(".container__form");
     const _moreButton = document.querySelector(".container__form__buttons__more");
     const _moreOptions = document.querySelector(".container__form__advance");
     const _alert = document.querySelector(".container__form__alert");
     const _outputContainer = document.querySelector(".container__output");
     const _outputContent = document.querySelector(".container__output__section__content");
+    const _clipboardButton = document.querySelector(".container__output__clipboard");
 
     const _errorMessage = "The maximum sentences/paragraph and words/sentence values are 12. Entered value must be positive";
 
@@ -22,6 +23,8 @@ const app = (() => {
     let _maxWord = 12;
     let _minSentence = 4;
     let _maxSentence = 12;
+
+    let _outputText = "";
 
     initAdvanceInput();
 
@@ -44,8 +47,12 @@ const app = (() => {
             _maxWord = parseInt(_maxWordCount);
             _minSentence = parseInt(_minSentenceCount);
             _maxSentence = parseInt(_maxSentenceCount);
+
             showOutputContainer();
-            outputLoremIpsumText(generateLoremIpsum());
+
+            _outputText = generateLoremIpsum();
+
+            outputLoremIpsumText();
             
         } else {
             displayAlert();
@@ -63,8 +70,56 @@ const app = (() => {
         }
     })
 
+    _clipboardButton.addEventListener('click', (event) => {
+        if (copyToClipBoard()) {
+            addCopyAlert();
+        }
+    })
+
+    function copyToClipBoard() {
+        let textarea = document.createElement("textarea");
+        
+        
+        document.body.appendChild(textarea);
+        
+        textarea.value = _outputText;
+        textarea.select();
+
+        try {
+            let state = document.execCommand("copy");
+            document.body.removeChild(textarea);
+
+            return state;
+        } catch (error) {
+            console.log("Oops, unable to copy!");
+            return false;
+        }
+    }
+
     function displayAlert() {
         _alert.textContent = _errorMessage;
+    }
+
+    function addCopyAlert() {
+        let alert = document.createElement('section');
+        let alertContent = document.createElement('p');
+
+        alert.classList.add('container__output__alert');
+        alertContent.classList.add('container__output__alert__content');
+
+        alertContent.textContent = 'Copied text successfully!';
+
+        setTimeout(() => {
+            alert.classList.add('push');
+        }, 0);
+
+        setTimeout(() => {
+            alert.classList.add('hidden');
+        }, 1000)
+
+        alert.appendChild(alertContent);
+
+        _outputContainer.appendChild(alert);
     }
 
     function generateLoremIpsum() {
@@ -82,8 +137,8 @@ const app = (() => {
         return lorem.generateParagraphs(_paragraph);
     }
 
-    function outputLoremIpsumText(text) {
-        _outputContent.textContent = text;
+    function outputLoremIpsumText() {
+        _outputContent.textContent = _outputText;
     }
 
     function showOutputContainer() {
