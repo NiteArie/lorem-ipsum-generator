@@ -10,6 +10,7 @@ const app = (() => {
     const _moreButton = document.querySelector(".container__form__buttons__more");
     const _moreOptions = document.querySelector(".container__form__advance");
     const _alert = document.querySelector(".container__form__alert");
+    const _outputContainer = document.querySelector(".container__output");
     const _outputContent = document.querySelector(".container__output__section__content");
 
     const _errorMessage = "The maximum sentences/paragraph and words/sentence values are 12. Entered value must be positive";
@@ -43,10 +44,12 @@ const app = (() => {
             _maxWord = parseInt(_maxWordCount);
             _minSentence = parseInt(_minSentenceCount);
             _maxSentence = parseInt(_maxSentenceCount);
+            showOutputContainer();
             outputLoremIpsumText(generateLoremIpsum());
             
         } else {
             displayAlert();
+            hideOutputContainer();
         }
     })
 
@@ -81,6 +84,14 @@ const app = (() => {
 
     function outputLoremIpsumText(text) {
         _outputContent.textContent = text;
+    }
+
+    function showOutputContainer() {
+        _outputContainer.classList.remove("hidden");
+    }
+
+    function hideOutputContainer() {
+        _outputContainer.classList.add("hidden");
     }
 
     function initAdvanceInput() {
